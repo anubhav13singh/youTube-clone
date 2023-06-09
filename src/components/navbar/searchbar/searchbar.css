@@ -1,0 +1,30 @@
+.search-bar{
+    display: flex;
+    align-items: center;
+    background-color: #fcfbfb;
+    border-radius: 20px;
+    width: 40vw;
+    padding: 5px 10px;
+    box-shadow: 1px 1px 4px grey;
+    margin-right: 20px;
+}
+input{
+    background-color: #fcfbfb;
+    outline: none;
+    border: none;
+    width: 40vw;
+
+}
+ .search{
+    color: rgb(128, 125, 125);
+    border: none;
+    background: none;
+ } 
+ @media (max-width:450px) {
+    .search-bar{
+    padding: 5px 35px 5px 10px;
+    margin-right: 5px;
+}
+}
+
+ 
