@@ -1,15 +1,17 @@
 .feed{
     display: flex;
+    flex-direction: row;
     gap: 10px;
-    background-color: black;
-   
+    background-color: black;  
 }
-   
-@media (max-width: 450px) {
+
+
+
+@media (max-width: 500px) {
     .feed{
-        display: flex;
         flex-direction: column;
         gap: 2px;
     }
+  
 }
 

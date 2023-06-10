@@ -15,24 +15,28 @@ function Feed() {
 useEffect(() =>{
   fetchApi(`search?part=snippet&q=${selectedCategory}`).then((data) => 
   setVideos(data.items) )
-},[selectedCategory])
+},[selectedCategory]);
 
   return (
     <>
     <div className='feed'>
 
-    <Sidebar selectedCategory ={selectedCategory}
-     setSelectedCategory ={setSelectedCategory} />
+       
+       <div > 
+       <Sidebar  selectedCategory ={selectedCategory}
+           setSelectedCategory ={setSelectedCategory} />
+       </div>
+       
 
-     <div className='feed-content'> 
-      <h4 style={{fontWeight: 'bold',color: 'white'}}>{selectedCategory} 
+      <div className='feed-content'> 
+        <h4 style={{fontWeight: 'bold',color: 'white'}}>         {selectedCategory} 
          <span style={{color: 'red'}}>  Videos </span>
-      </h4>
+        </h4>
 
 
-      <Videos videos={videos}/>
+       <Videos videos={videos}/>
 
-     </div>
+      </div>
 
     </div>
     </>

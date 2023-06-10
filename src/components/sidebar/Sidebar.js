@@ -1,3 +1,4 @@
+
 import React from 'react'
 import {categories} from '../../utils/constant'
 import './sidebar.css'
@@ -9,7 +10,7 @@ function Sidebar( {selectedCategory,setSelectedCategory}) {
     <>
       <div className='sidebar'>
 
-      {categories.map((c) => 
+        {categories.map((c) => 
       
          <button className='sidebar-btn' key={c.name}
           onClick={() => (setSelectedCategory(c.name))}
