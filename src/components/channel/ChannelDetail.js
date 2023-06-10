@@ -26,7 +26,7 @@ function ChannelDetail() {
         <Box>
            <div style={{background: 'radial-gradient(circle, rgba(238,174,202,1) 2%, rgba(148,207,233,0.8015581232492998) 100%)',
            zIndex: 10,
-           height:' 300px'
+           height:' 250px'
           }} />
         <ChannelCard channelDetail={channelDetail} /> 
      
@@ -34,13 +34,14 @@ function ChannelDetail() {
 
         <Box display='flex' padding='3' mb='10' >
 
-            <Box sx={{mr:{sm:'110px'}}} backgroundColor= 'red' />
+            <Box sx={{mr:{sm:'110px'}}} />
             <Videos videos={videos} />
-          
+          {/* research it */}
            
         </Box>
 
     
+
     </Box>
     
  
