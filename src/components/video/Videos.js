@@ -5,7 +5,7 @@ import ChannelCard from '../channel/ChannelCard';
 
 function Videos({videos}) {
 
-  console.log(videos);
+  // console.log(videos);
   return (
     
     <div
