@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  React, { useEffect } from 'react'
 import { fetchApi } from '../../utils/Api'
 import ReactPlayer from 'react-player'
 import {AiFillCheckCircle} from 'react-icons/ai'
@@ -12,7 +12,7 @@ function VideoDetail() {
   const {id} = useParams();
   const[videoDetail, setVideoDetail]= useState([])
   const[ videos, setVideos] =useState([])
-console.log(videoDetail);
+// console.log(videoDetail);
 
   useEffect(() => {
       fetchApi(`videos?part=snippet,statistics&id=${id}`).then((data) =>setVideoDetail(data.items[0]) );
@@ -23,50 +23,37 @@ console.log(videoDetail);
   return (
     
     <>
-    <Box minHeight='92vh' backgroundColor='black' padding='10px'>
-      <Stack direction={{xs:'column', md:'row'}}>
-        <Box width={{xs:'100%', md:'70%'}}>
-          <ReactPlayer url={`https://www.youtube.com/watch?v=${id}` } 
-          style={{width:'100%', height:'500px'}} controls />
-
-          <Typography color='white' fontSize='20px' padding='10px 0px 0px 10px' fontWeight='400'>
-            {videoDetail?.snippet?.title}
-          </Typography>
-
-          <Stack direction='row' justifyContent='space-between' alignItems='center' padding='0px 12px'>
-
-              <Typography color='grey' fontSize='15px' fontWeight='300' >
-                {videoDetail?.snippet?.channelTitle}
-                <AiFillCheckCircle style={{margin:'5px'}} />
-              </Typography>
-
-              <Stack direction='row' gap='10px'>
-                <Typography color='grey' fontSize='12px' fontWeight='200' >
+    
+    <Box minHeight="95vh">
+      <Stack direction={{ xs: "column", md: "row" }}>
+        <Box flex={1}>
+          <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
+            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
+            <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
+              {videoDetail?.snippet?.title}
+            </Typography>
+            <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
+              
+                <Typography variant={{ sm: "subtitle1", md: 'h6' }}  color="#fff" >
+                  {videoDetail?.snippet?.channelTitle}
+                  <AiFillCheckCircle style={{margin:'5px'}} />
+                </Typography>
+              
+              <Stack direction="row" gap="20px" alignItems="center">
+                <Typography variant="body1" sx={{ opacity: 0.7 }}>
                   {parseInt(videoDetail?.statistics?.viewCount).toLocaleString()} views
                 </Typography>
-
-                <Typography color='grey' fontSize='12px' fontWeight='200' >
+                <Typography variant="body1" sx={{ opacity: 0.7 }}>
                   {parseInt(videoDetail?.statistics?.likeCount).toLocaleString()} likes
                 </Typography>
               </Stack>
-
-          </Stack>
+            </Stack>
+          </Box>
         </Box>
-
-
-        <Typography color='white' fontSize='18px' fontWeight='200' padding='12px 0px 0px 10px' >
-          Related Videos
-        </Typography>
-
-        <Box margin='10px'>
-          <Stack direction={{xs: 'column', md: 'row'}} justifyContent='center' >
-            <Videos videos={videos} />
-          </Stack>
+        <Box  py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center" >
+          <Videos videos={videos} direction="column" />
         </Box>
-
-
       </Stack>
-
     </Box>
     
     
