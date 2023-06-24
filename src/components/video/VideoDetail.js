@@ -12,7 +12,7 @@ function VideoDetail() {
   const {id} = useParams();
   const[videoDetail, setVideoDetail]= useState([])
   const[ videos, setVideos] =useState([])
-// console.log(videoDetail);
+console.log(videoDetail);
 
   useEffect(() => {
       fetchApi(`videos?part=snippet,statistics&id=${id}`).then((data) =>setVideoDetail(data.items[0]) );
@@ -25,34 +25,40 @@ function VideoDetail() {
     <>
     
     <Box minHeight="95vh">
-      <Stack direction={{ xs: "column", md: "row" }}>
-        <Box flex={1}>
-          <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
-            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} className="react-player" controls />
-            <Typography color="#fff" variant="h5" fontWeight="bold" p={2}>
+      <Stack direction={{ xs: "column", md: "row" }}gap={{xs:'60px',lg:'10px'}}>
+       <Box flex={1}>
+
+          <Box sx={{ width:{xs:'100vw', md:'70vw'},height:{xs:'50vh', md:'60vh'}, position: "sticky", top: "86px" }}>
+            <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} width='100%'height='100%' controls />
+
+            <Typography color="#fff" fontSize={{md:'27px'}} padding={{xs:'0px 5px', md:'0px 10px'}}>
               {videoDetail?.snippet?.title}
             </Typography>
-            <Stack direction="row" justifyContent="space-between" sx={{ color: "#fff" }} py={1} px={2} >
+
+            <Stack direction="row" padding={{xs:'0px 5px', md:'0px 10px'}} justifyContent="space-between" sx={{ color: "#fff" }}  >
               
-                <Typography variant={{ sm: "subtitle1", md: 'h6' }}  color="#fff" >
+              < NavLink to={`/channel/${videoDetail?.snippet?.channelId}`} >
+                <Typography   color="#fff" >
                   {videoDetail?.snippet?.channelTitle}
                   <AiFillCheckCircle style={{margin:'5px'}} />
                 </Typography>
-              
-              <Stack direction="row" gap="20px" alignItems="center">
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                </NavLink>
+
+              <Stack direction="row" gap="10px" alignItems="center">
+                <Typography sx={{ opacity: 0.7 }}>
                   {parseInt(videoDetail?.statistics?.viewCount).toLocaleString()} views
                 </Typography>
-                <Typography variant="body1" sx={{ opacity: 0.7 }}>
+                <Typography  sx={{ opacity: 0.7 }}>
                   {parseInt(videoDetail?.statistics?.likeCount).toLocaleString()} likes
                 </Typography>
               </Stack>
+
             </Stack>
           </Box>
         </Box>
         <Box  py={{ md: 1, xs: 5 }} justifyContent="center" alignItems="center" >
           <Videos videos={videos} direction="column" />
-        </Box>
+       </Box>
       </Stack>
     </Box>
     
