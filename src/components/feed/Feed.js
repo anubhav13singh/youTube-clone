@@ -19,17 +19,16 @@ useEffect(() =>{
 
   return (
     <>
+    
     <div className='feed'>
-
-       
-       <div > 
+      <div >
        <Sidebar  selectedCategory ={selectedCategory}
            setSelectedCategory ={setSelectedCategory} />
        </div>
        
 
       <div className='feed-content'> 
-        <h4 style={{fontWeight: 'bold',color: 'white'}}>         {selectedCategory} 
+        <h4 style={{fontWeight: 'bold',color: 'white'}}> {selectedCategory} 
          <span style={{color: 'red'}}>  Videos </span>
         </h4>
 

@@ -2,12 +2,14 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import {Feed, VideoDetail,ChannelDetail,SearchFeed,Navbar} from './components/Export'
+import { Box } from '@mui/material'
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <Box bgcolor='black'>
         <Navbar />
         <Routes>
           <Route path ='/' element={<Feed/>} />
@@ -15,6 +17,8 @@ function App() {
           <Route path ='/channel/:id' element={<ChannelDetail/>} />
           <Route path ='/search/:searchTerm' element={<SearchFeed/>} />
         </Routes>
+
+        </Box>
       
       </BrowserRouter>
    

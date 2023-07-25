@@ -12,13 +12,15 @@ function Videos({videos}) {
      style={{display:'flex', 
       flexWrap:'wrap',    
        flexDirection:'row', 
-       gap:'10px'}}>
+       gap:'10px',
+       overflowY: '-moz-hidden-unscrollable'
+       }}>
 
         {videos.map((item, idx) => (
           <div key={idx} >
            
             {item.id.videoId && <VideoCard card={item}/>}
-            {item.id.channelId && <ChannelCard card={item}/>}
+            {/* {item.id.channelId && <ChannelCard card={item}/>} */}
 
           </div>
         ))}

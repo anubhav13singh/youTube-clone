@@ -2,19 +2,19 @@
 import React from 'react'
 import {categories} from '../../utils/constant'
 import './sidebar.css'
-
 function Sidebar( {selectedCategory,setSelectedCategory}) {
 
 
   return (
-    <>
-      <div className='sidebar'>
+    <div className='scroll'>
+      <div className='sidebar'> 
 
         {categories.map((c) => 
       
          <button className='sidebar-btn' key={c.name}
           onClick={() => (setSelectedCategory(c.name))}
-           style={{backgroundColor: c.name === selectedCategory && '#fC1503' }}> 
+           style={{backgroundColor: c.name === selectedCategory && '#fC1503' }}
+           > 
            {/* focus on this section  */}
 
             <span className='sidebar-icon'
@@ -25,7 +25,7 @@ function Sidebar( {selectedCategory,setSelectedCategory}) {
       
       )}
        </div>
-    </>
+    </div>
   )
 }
 

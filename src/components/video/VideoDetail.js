@@ -12,7 +12,8 @@ function VideoDetail() {
   const {id} = useParams();
   const[videoDetail, setVideoDetail]= useState([])
   const[ videos, setVideos] =useState([])
-console.log(videoDetail);
+// console.log(videoDetail);
+// console.log(videos);
 
   useEffect(() => {
       fetchApi(`videos?part=snippet,statistics&id=${id}`).then((data) =>setVideoDetail(data.items[0]) );
@@ -28,7 +29,7 @@ console.log(videoDetail);
       <Stack direction={{ xs: "column", md: "row" }}gap={{xs:'60px',lg:'10px'}}>
        <Box flex={1}>
 
-          <Box sx={{ width:{xs:'100vw', md:'70vw'},height:{xs:'50vh', md:'60vh'}, position: "sticky", top: "86px" }}>
+          <Box sx={{ width:{xs:'100vw', md:'70vw'},height:{xs:'55vh', md:'60vh'}, position: "sticky", top: "86px" }} >
             <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} width='100%'height='100%' controls />
 
             <Typography color="#fff" fontSize={{md:'27px'}} padding={{xs:'0px 5px', md:'0px 10px'}}>

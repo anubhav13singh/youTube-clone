@@ -1,4 +1,10 @@
-.sidebar{
+ .scroll{
+    overflow: scroll;
+    position: sticky;
+    top: 0px;
+} 
+
+ .sidebar{
     display: flex;
     flex-direction: column;
     width: max-content;
@@ -6,7 +12,8 @@
     height: 95%;
     padding: 10px;
     background-color: black;
-}
+    
+ }
 .sidebar-btn{
     display: flex;
     align-items: center;
@@ -31,7 +38,9 @@
 .sidebar-icon{
     color: red;
 }
-
+.sidebar-icon:hover{
+    color: white;
+}
 
 @media (max-width:450px) {
     .sidebar{
@@ -45,4 +54,5 @@
         align-items: center;
         height: fit-content;
     }
-}
+    
+} 

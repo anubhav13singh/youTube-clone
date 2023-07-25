@@ -1,8 +1,9 @@
 .feed{
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 20px;
     background-color: black;  
+    
 }
 
 
