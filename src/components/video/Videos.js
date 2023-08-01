@@ -1,11 +1,10 @@
 import React from 'react'
 import VideoCard from './VideoCard';
-import ChannelCard from '../channel/ChannelCard';
 
 
 function Videos({videos}) {
 
-  // console.log(videos);
+  console.log(videos);
   return (
     
     <div
@@ -20,7 +19,7 @@ function Videos({videos}) {
           <div key={idx} >
            
             {item.id.videoId && <VideoCard card={item}/>}
-            {/* {item.id.channelId && <ChannelCard card={item}/>} */}
+            
 
           </div>
         ))}

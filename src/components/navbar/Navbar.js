@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {AiFillYoutube} from 'react-icons/ai'
-
+// import Login from './Login'
 import './navbar.css'
 import SearchBar from './searchbar/SearchBar'
 
@@ -18,6 +18,8 @@ function Navbar() {
       </NavLink>
       
     <SearchBar/>
+    {/* <Login /> */}
+
       </div>
     
     </>
